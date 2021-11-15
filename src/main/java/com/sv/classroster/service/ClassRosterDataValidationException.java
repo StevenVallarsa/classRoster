@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-package com.sv.classroster.dao;
+package com.sv.classroster.service;
 
 /**
  *
@@ -12,14 +12,14 @@ package com.sv.classroster.dao;
  * date:
  * purpose:
  */
-public class ClassRosterDaoException extends Exception {
-
-    public ClassRosterDaoException(String message) {
+public class ClassRosterDataValidationException extends Exception {
+    public ClassRosterDataValidationException(String message) {
         super(message);
     }
 
-    public ClassRosterDaoException(String message, Throwable cause) {
+    public ClassRosterDataValidationException(String message,
+            Throwable cause) {
         super(message, cause);
     }
-    
+
 }

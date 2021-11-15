@@ -7,6 +7,8 @@ package com.sv.classroster;
 
 import com.sv.classroster.controller.ClassRosterController;
 import com.sv.classroster.dao.*;
+import com.sv.classroster.service.ClassRosterServiceLayer;
+import com.sv.classroster.service.ClassRosterServiceLayerImpl;
 import com.sv.classroster.ui.*;
 
 /**
@@ -21,10 +23,10 @@ public class App {
     public static void main(String[] args) {
         UserIO myIo = new UserIOConsoleImpl();
         ClassRosterView myView = new ClassRosterView(myIo);
-        
-        classRosterDao myDao = new ClassRosterDaoFileImpl();
-                
-        ClassRosterController controller = new ClassRosterController(myDao, myView);
+        ClassRosterDao myDao = new ClassRosterDaoFileImpl();
+        ClassRosterAuditDao myAuditDao = new ClassRosterAuditDaoFileImpl();
+        ClassRosterServiceLayer myService = new ClassRosterServiceLayerImpl(myDao, myAuditDao);
+        ClassRosterController controller = new ClassRosterController(myService, myView);
         controller.run();
     }
 

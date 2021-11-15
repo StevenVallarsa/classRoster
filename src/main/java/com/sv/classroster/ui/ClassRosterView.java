@@ -36,7 +36,7 @@ public class ClassRosterView {
         return currentStudent;
     }
     
-    public void displyCreateStudentBanner() {
+    public void displayCreateStudentBanner() {
         io.print("=== Create Student ===");
     }
     
