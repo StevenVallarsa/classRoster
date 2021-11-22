@@ -28,8 +28,17 @@ import java.util.Scanner;
 public class ClassRosterDaoFileImpl implements ClassRosterDao {
     
     private Map<String, Student> students = new HashMap<>();
-    public static final String ROSTER_FILE = "roster.txt";
+    private final String ROSTER_FILE;
     public static final String DELIMITER = "::";
+    
+    public ClassRosterDaoFileImpl() {
+        ROSTER_FILE = "roster.txt";
+    }
+
+    public ClassRosterDaoFileImpl(String rosterTestFile) {
+        ROSTER_FILE = rosterTestFile;
+    }
+
 
     @Override
     public Student addStudent(String studentId, Student student) throws ClassRosterPersistenceException {
